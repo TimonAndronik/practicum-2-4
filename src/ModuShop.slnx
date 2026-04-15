@@ -1,0 +1,32 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Catalog Module/">
+    <Project Path="ModuShop.Catalog.Contracts/ModuShop.Catalog.Contracts.csproj" />
+    <Project Path="ModuShop.Catalog/ModuShop.Catalog.csproj" />
+  </Folder>
+  <Folder Name="/Emailing Module/">
+    <Project Path="ModuShop.Emailing.Contracts/ModuShop.Emailing.Contracts.csproj" />
+    <Project Path="ModuShop.Emailing/ModuShop.Emailing.csproj" />
+  </Folder>
+  <Folder Name="/Orders Module/">
+    <Project Path="ModuShop.Orders.Contracts/ModuShop.Orders.Contracts.csproj" />
+    <Project Path="ModuShop.Orders/ModuShop.Orders.csproj" />
+  </Folder>
+  <Folder Name="/Reporting Module/">
+    <Project Path="ModuShop.Reporting.Contracts/ModuShop.Reporting.Contracts.csproj" />
+    <Project Path="ModuShop.Reporting/ModuShop.Reporting.csproj" />
+  </Folder>
+  <Folder Name="/Users Module/">
+    <Project Path="ModuShop.Users.Contracts/ModuShop.Users.Contracts.csproj" />
+    <Project Path="ModuShop.Users/ModuShop.Users.csproj" />
+  </Folder>
+  <Folder Name="/_Host/">
+    <Project Path="ModuShop.Web/ModuShop.Web.csproj" />
+  </Folder>
+  <Project Path="ModuShop.AppHost/ModuShop.AppHost.csproj" />
+  <Project Path="ModuShop.ServiceDefaults/ModuShop.ServiceDefaults.csproj" />
+</Solution>
