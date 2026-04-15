@@ -1,0 +1,20 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.2.2">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ModuShop.ServiceDefaults\ModuShop.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\ModuShop.Web\ModuShop.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.SqlServer" Version="13.2.2" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>6c79a832-8138-42c7-93c7-d7988a554290</UserSecretsId>
+  </PropertyGroup>
+
+</Project>
