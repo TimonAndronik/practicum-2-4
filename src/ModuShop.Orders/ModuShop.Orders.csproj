@@ -2,6 +2,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ModuShop.Orders.Contracts\ModuShop.Orders.Contracts.csproj" />
+    <ProjectReference Include="..\ModuShop.Catalog\ModuShop.Catalog.csproj" />
+    <ProjectReference Include="..\ModuShop.Users\ModuShop.Users.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="13.2.2" />
+    <PackageReference Include="FastEndpoints" Version="8.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.6" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
   </ItemGroup>
 
   <PropertyGroup>
