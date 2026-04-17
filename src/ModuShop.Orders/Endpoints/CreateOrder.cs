@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using ModuShop.Catalog.Data;
 using ModuShop.Orders.Data;
 using ModuShop.Orders.Entities;
+using ModuShop.Emailing.Contracts;
 
 namespace ModuShop.Orders.Endpoints;
 
@@ -38,7 +39,8 @@ public class CreateOrderResponse
 public class CreateOrder(
     OrdersDbContext ordersDb,
     CatalogDbContext catalogDb,
-    UserManager<IdentityUser> userManager)
+    UserManager<IdentityUser> userManager,
+    IEmailSender emailSender)
     : Endpoint<CreateOrderRequest, CreateOrderResponse>
 {
     public override void Configure()
@@ -110,7 +112,14 @@ public class CreateOrder(
 
         ordersDb.Orders.Add(order);
         await ordersDb.SaveChangesAsync(ct);
-
+        if (!string.IsNullOrWhiteSpace(customer.Email))
+        {
+            await emailSender.SendOrderConfirmationAsync(
+                customer.Email,
+                order.Id,
+                order.TotalAmount,
+                ct);
+        }
         Response = new CreateOrderResponse
         {
             OrderId = order.Id,

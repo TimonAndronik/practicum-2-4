@@ -4,6 +4,7 @@
     <ProjectReference Include="..\ModuShop.Orders.Contracts\ModuShop.Orders.Contracts.csproj" />
     <ProjectReference Include="..\ModuShop.Catalog\ModuShop.Catalog.csproj" />
     <ProjectReference Include="..\ModuShop.Users\ModuShop.Users.csproj" />
+    <ProjectReference Include="..\ModuShop.Emailing.Contracts\ModuShop.Emailing.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
