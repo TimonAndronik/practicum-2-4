@@ -134,7 +134,7 @@ src/
 
   ModuShop.Reporting/
   ModuShop.Reporting.Contracts/
-
+```
   Технологічний стек
 C#
 .NET 10
