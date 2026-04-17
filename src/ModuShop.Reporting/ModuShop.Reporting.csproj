@@ -2,6 +2,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ModuShop.Reporting.Contracts\ModuShop.Reporting.Contracts.csproj" />
+    <ProjectReference Include="..\ModuShop.Orders\ModuShop.Orders.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastEndpoints" Version="8.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.6" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
   </ItemGroup>
 
   <PropertyGroup>

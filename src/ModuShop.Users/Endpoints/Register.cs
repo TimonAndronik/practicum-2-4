@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Threading;
-using System.Threading.Tasks;
 using FastEndpoints;
+using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace ModuShop.Users.Endpoints;
 
@@ -23,7 +21,8 @@ public class RegisterResponse
     public List<string>? Errors { get; set; }
 }
 
-public class Register : Endpoint<RegisterRequest, RegisterResponse>
+public class Register(UserManager<IdentityUser> userManager)
+    : Endpoint<RegisterRequest, RegisterResponse>
 {
     public override void Configure()
     {
@@ -39,10 +38,30 @@ public class Register : Endpoint<RegisterRequest, RegisterResponse>
 
     public override async Task HandleAsync(RegisterRequest req, CancellationToken ct)
     {
+        var user = new IdentityUser
+        {
+            UserName = req.Email,
+            Email = req.Email
+        };
+
+        var result = await userManager.CreateAsync(user, req.Password);
+
+        if (!result.Succeeded)
+        {
+            foreach (var error in result.Errors)
+            {
+                AddError(error.Description);
+            }
+
+            ThrowIfAnyErrors();
+            return;
+        }
+
         Response = new RegisterResponse
         {
             Success = true,
-            Message = "Registration endpoint is working! (Not yet connected to Identity)"
+            Message = "User registered successfully",
+            UserId = user.Id
         };
 
         await Send.OkAsync(Response, ct);

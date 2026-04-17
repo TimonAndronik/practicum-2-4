@@ -3,6 +3,10 @@ using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using ModuShop.Users;
 using Serilog;
+using ModuShop.Catalog;
+using ModuShop.Orders;
+using ModuShop.Emailing;
+using ModuShop.Reporting;
 
 var logger = Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -27,7 +31,10 @@ builder.Services.AddFastEndpoints()
     .SwaggerDocument();
 
 builder.AddUsersModuleServices(logger);
-
+builder.AddCatalogModuleServices(logger);
+builder.AddOrdersModuleServices(logger);
+builder.AddEmailingModuleServices(logger);
+builder.AddReportingModuleServices(logger);
 var app = builder.Build();
 
 app.UseAuthentication();
@@ -37,5 +44,6 @@ app.UseFastEndpoints()
    .UseSwaggerGen();
 
 await app.EnsureUsersModuleDatabaseAsync();
-
+await app.EnsureCatalogModuleDatabaseAsync();
+await app.EnsureOrdersModuleDatabaseAsync();
 app.Run();
