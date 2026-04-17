@@ -135,68 +135,79 @@ src/
   ModuShop.Reporting/
   ModuShop.Reporting.Contracts/
 ```
-  Технологічний стек
-C#
-.NET 10
-ASP.NET Core Minimal APIs
-FastEndpoints
-.NET Aspire
-Entity Framework Core
-SQL Server
-ASP.NET Core Identity
-Serilog
-Docker Desktop
-Передумови для запуску
+## Технологічний стек
+
+- C#
+- .NET 10
+- ASP.NET Core Minimal APIs
+- FastEndpoints
+- .NET Aspire
+- Entity Framework Core
+- SQL Server
+- ASP.NET Core Identity
+- Serilog
+- Docker Desktop
+
+## Передумови для запуску
 
 Перед запуском потрібно встановити:
 
-.NET 10 SDK
-Docker Desktop
-Aspire CLI
-будь-яке IDE/редактор:
-Visual Studio
-VS Code
-JetBrains Rider
-Інструкція запуску
-1. Клонування репозиторію
+- .NET 10 SDK
+- Docker Desktop
+- Aspire CLI
+- будь-яке IDE/редактор:
+  - Visual Studio
+  - VS Code
+  - JetBrains Rider
+
+## Інструкція запуску
+
+### 1. Клонування репозиторію
+
+```bash
 git clone https://github.com/YOUR_USERNAME/practicum-2-4.git
 cd practicum-2-4/src
+```
 
-Замініть YOUR_USERNAME на свій GitHub username.
-
-2. Відновлення залежностей
+### 2. Відновлення залежностей
+```bash
 dotnet restore
-3. Переконайтесь, що Docker Desktop запущений
+```
+### 3. Переконайтесь, що Docker Desktop запущений
 
 Перед стартом застосунку потрібно, щоб Docker був активний, оскільки SQL Server піднімається через Aspire.
 
-4. Запуск застосунку
+### 4. Запуск застосунку
+```bash
 dotnet run --project ModuShop.AppHost
-5. Відкриття Swagger
+```
+### 5. Відкриття Swagger
 
 Після запуску Aspire покаже адреси доступних сервісів.
 Потрібно відкрити webapi і перейти до Swagger UI за адресою на кшталт:
 
 https://localhost:xxxx/swagger
-Основні endpoint’и
-Users
-POST /register
-POST /login
-GET /users/{id}
-Catalog
-POST /api/catalog/categories
-POST /api/catalog/products
-GET /api/catalog/products
-GET /api/catalog/products/{id}
-Orders
-POST /api/orders
-GET /api/orders/{id}
-GET /api/orders/by-customer/{customerId}
-Reporting
-GET /api/reports/sales-summary
-GET /api/reports/top-products
-GET /api/reports/orders-per-day
-Приклад сценарію перевірки
+
+### Основні endpoint’и
+## Users
+- POST /register
+- POST /login
+- GET /users/{id}
+## Catalog
+- POST /api/catalog/categories
+- POST /api/catalog/products
+- GET /api/catalog/products
+- GET /api/catalog/products/{id}
+## Orders
+- POST /api/orders
+- GET /api/orders/{id}
+- GET /api/orders/by-customer/{customerId}
+## Reporting
+- GET /api/reports/sales-summary
+- GET /api/reports/top-products
+- GET /api/reports/orders-per-day
+
+## Приклад сценарію перевірки
 Зареєструвати користувача через POST /register
 Створити категорію через POST /api/catalog/categories
 Створити товар через POST /api/catalog/products
@@ -206,10 +217,9 @@ GET /api/reports/orders-per-day
 
 У системі використовується SQL Server.
 Для збереження модульності дані розділено по схемах:
-
-users
-catalog
-orders
+- users
+- catalog
+- orders
 
 Це дозволяє уникнути повного змішування таблиць між модулями і краще підтримує bounded contexts у межах одного моноліту.
 
@@ -217,17 +227,17 @@ orders
 
 У папці /docs розміщені C4-діаграми:
 
-Level 1 — System Context
-Level 2 — Container Diagram
-Level 3 — Component Diagram (для ключового модуля)
+- Level 1 — System Context
+- Level 2 — Container Diagram
+- Level 3 — Component Diagram (для ключового модуля)
 
 Також у межах практикуму підготовлено архітектурний звіт і паспорт архітектурної оцінки.
 
-Поточні обмеження
+###Поточні обмеження
 
 Це навчальний проєкт, тому деякі рішення свідомо спрощені:
 
-email sender є логічним/fake, а не реальним SMTP-провайдером;
-частина міжмодульної взаємодії виконується напряму, а не через повністю оформлені application services;
-contracts-проєкти підготовлені як архітектурна основа, але можуть бути розвинуті далі;
-звіти реалізовані у спрощеному вигляді без окремої read-model бази.
+- email sender є логічним/fake, а не реальним SMTP-провайдером;
+- частина міжмодульної взаємодії виконується напряму, а не через повністю оформлені application services;
+- contracts-проєкти підготовлені як архітектурна основа, але можуть бути розвинуті далі;
+- звіти реалізовані у спрощеному вигляді без окремої read-model бази.
