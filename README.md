@@ -208,12 +208,12 @@ https://localhost:xxxx/swagger
 - GET /api/reports/orders-per-day
 
 ## Приклад сценарію перевірки
-Зареєструвати користувача через POST /register
-Створити категорію через POST /api/catalog/categories
-Створити товар через POST /api/catalog/products
-Створити замовлення через POST /api/orders
-Перевірити звіти через GET /api/reports/sales-summary
-База даних
+- Зареєструвати користувача через POST /register
+- Створити категорію через POST /api/catalog/categories
+- Створити товар через POST /api/catalog/products
+- Створити замовлення через POST /api/orders
+- Перевірити звіти через GET /api/reports/sales-summary
+## База даних
 
 У системі використовується SQL Server.
 Для збереження модульності дані розділено по схемах:
@@ -233,7 +233,7 @@ https://localhost:xxxx/swagger
 
 Також у межах практикуму підготовлено архітектурний звіт і паспорт архітектурної оцінки.
 
-###Поточні обмеження
+##Поточні обмеження
 
 Це навчальний проєкт, тому деякі рішення свідомо спрощені:
 
